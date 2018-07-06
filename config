@@ -103,28 +103,28 @@ bindsym $mod+plus scratchpad show
 bindsym $mod+Shift+x     [workspace=__i3_scratch] kill
 
 # switch to workspace
-bindsym $mod+1 workspace 1:<i><span foreground="#F0F0F0">main</span></i> 
-bindsym $mod+2 workspace 2:<i><span foreground="#D1D1D1">www</span></i>  
-bindsym $mod+3 workspace 3:<i><span foreground="#BABABA">media</span></i>
-bindsym $mod+4 workspace 4:<i><span foreground="#8C8C8C">social</span></i>
-bindsym $mod+5 workspace 5:<i><span foreground="#6E6E6E">other</span></i>
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10:<i><span foreground="#FF91F9">status</span></i>
+bindsym $mod+1 workspace  1:<span foreground="#00b4d8"></span> 
+bindsym $mod+2 workspace  2:<span foreground="#00b4d8"></span>
+bindsym $mod+3 workspace  3:<span foreground="#00b4d8"></span>    
+bindsym $mod+4 workspace  4:<span foreground="#00b4d8"></span>    
+bindsym $mod+5 workspace  5:<span foreground="#00b4d8"></span>    
+bindsym $mod+6 workspace  6
+bindsym $mod+7 workspace  7
+bindsym $mod+8 workspace  8
+bindsym $mod+9 workspace  9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:<i><span foreground="#F0F0F0">main</span></i> 
-bindsym $mod+Shift+2 move container to workspace 2:<i><span foreground="#D1D1D1">www</span></i>  
-bindsym $mod+Shift+3 move container to workspace 3:<i><span foreground="#BABABA">media</span></i>
-bindsym $mod+Shift+4 move container to workspace 4:<i><span foreground="#8C8C8C">social</span></i>
-bindsym $mod+Shift+5 move container to workspace 5:<i><span foreground="#6E6E6E">other</span></i>
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10:<i><span foreground="#FF91F9">status</span></i>
+bindsym $mod+Shift+1 move container to workspace  1:<span foreground="#00b4d8"></span> 
+bindsym $mod+Shift+2 move container to workspace  2:<span foreground="#00b4d8"></span>
+bindsym $mod+Shift+3 move container to workspace  3:<span foreground="#00b4d8"></span     
+bindsym $mod+Shift+4 move container to workspace  4:<span foreground="#00b4d8"></span>    
+bindsym $mod+Shift+5 move container to workspace  5:<span foreground="#00b4d8"></span>    
+bindsym $mod+Shift+6 move container to workspace  6
+bindsym $mod+Shift+7 move container to workspace  7
+bindsym $mod+Shift+8 move container to workspace  8
+bindsym $mod+Shift+9 move container to workspace  9
+bindsym $mod+Shift+0 move container to workspace 10:
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -190,9 +190,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# for some reason shutter only launches properly when called 2 times
-bindsym Print --release exec "shutter -s; shutter -s"
-
 # i3 bar config
 bar {
      # main settings
@@ -200,17 +197,23 @@ bar {
      i3bar_command  "i3bar -t"
      id             bar-0
      position       top
-     font           pango:Mono 12, FontAwesome 10 
+     font           pango:Arial 16, FontAwesome 9
      
      # tray settings
      tray_padding   1
-     height         15
+     height         20
 
      # visuals
      strip_workspace_numbers yes
-     separator_symbol        ">"
+     separator_symbol        " / "
+     
      colors {
-                    #RRGGBBAA
-         background #242424bb  
+                            #RRGGBBAA
+         background         #000000bb
+         focused_workspace  #999999    #091116    #ffffff
+         active_workspace   #333333    #5f676a    #ffffff
+         inactive_workspace #333333    #222222    #888888
+         urgent_workspace   #2f343a    #900000    #ffffff
+         binding_mode       #2f343a    #900000    #ffffff
      }
 }
