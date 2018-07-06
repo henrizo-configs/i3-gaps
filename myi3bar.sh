@@ -1,8 +1,7 @@
 #! bin/bash
 
 # DEPENDENCY: icons depends on font awesome
-
-# tells i3bar what version of protocol to use
+bfof protocol to use
 echo '{ "version": 1 }'
 # Protocol things that I do not understand
 echo '['
@@ -22,7 +21,10 @@ do
     keyboardLayout=$(setxkbmap -query | grep layout | rev | cut -c 1,2 | rev)
     
     # date info
-    date=$(date "+%a %d/%m/%Y %T") 
+    date=$(date "+%a %d/%m/%Y")
+
+    #time info
+    time=$(date "+%T")
     
     # audio info
     audioState=$(amixer get Master  | grep -Eo "\[(off|on)\]" | sed -n '1,1 p')
@@ -33,7 +35,7 @@ do
         audioColor=$bloodyred
     else
         audioIcon=""
-        audioColor="#DEDEDE"
+        audioColor="#bfbfbf"
     fi
        
     # connection info
@@ -41,7 +43,7 @@ do
     if [[ $wifiStatus != "state DOWN" ]]
     then
         connectionIcon=""
-        connectionColor="#DEDEDE"
+        connectionColor="#bfbfbf"
         ssid=" connected"
     else
         connectionIcon=""
@@ -51,7 +53,7 @@ do
 
     # output blocks
         echo ",[{ \"name\"    :\"msg\"
-                ,\"color\"    :\"#DEDEDE\"
+                ,\"color\"    :\"#bfbfbf\"
                 ,\"full_text\":\"  $USER@$hostname\"}
 
                 ,{ \"name\"     :\"connectionInfo\"
@@ -63,12 +65,16 @@ do
                 ,\"full_text\":\"$audioIcon $masterLevel\"}
 
                 ,{ \"name\"   :\"keyboardInfo \"
-                ,\"color\"    :\"#DEDEDE\"
+                ,\"color\"    :\"#bfbfbf\"
                 ,\"full_text\":\"  $keyboardLayout\"}
                 
                ,{ \"name\"     :\"date\"
-                ,\"color\"    :\"#DEDEDE\"
-                ,\"full_text\":\"  $date \"}
+                ,\"color\"    :\"#bfbfbf\"
+                ,\"full_text\":\"  $date \"}
+
+               ,{ \"name\"     :\"time\"
+                ,\"color\"    :\"#bfbfbf\"
+                ,\"full_text\":\"  $time \"}
            ]"
     sleep 1
 done
