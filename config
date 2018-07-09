@@ -311,7 +311,7 @@ bindsym $mod+0 workspace 10:<span foreground="#00b4d8">10</span>
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace  1:<span foreground="#00b4d8"></span> 
 bindsym $mod+Shift+2 move container to workspace  2:<span foreground="#00b4d8"></span>
-bindsym $mod+Shift+3 move container to workspace  3:<span foreground="#00b4d8"></span     
+bindsym $mod+Shift+3 move container to workspace  3:<span foreground="#00b4d8"></span>     
 bindsym $mod+Shift+4 move container to workspace  4:<span foreground="#00b4d8"></span>    
 bindsym $mod+Shift+5 move container to workspace  5:<span foreground="#00b4d8"></span>    
 bindsym $mod+Shift+6 move container to workspace  6:<span foreground="#00b4d8">6</span> 
