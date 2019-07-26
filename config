@@ -3,6 +3,8 @@
 set $mod Mod4
 #set $mod Mod1
 
+# jack
+exec --no-startup-id qjackctl
 # set wallpaper
 exec --no-startup-id feh --bg-fill "/mnt/myStuff/wallpapers/barquinho.jpg"
 # run conky at startup and move it to status workspace
@@ -153,7 +155,127 @@ bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Close session?'  \
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 4%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 4%- unmute
 bindsym XF86AudioMute        exec amixer -q -D pulse set Master toggle
-# non-multimedia keyboard
+# non-multimedia keyboard# DEPENDENCY: You should have font-awesome installed for correct displaying the icons
+2
+​
+3
+set $mod Mod4
+4
+#set $mod Mod1
+5
+​
+6
+# set wallpaper
+7
+exec --no-startup-id feh --bg-fill "/mnt/myStuff/wallpapers/barquinho.jpg"
+8
+# run conky at startup and move it to status workspace
+9
+exec --no-startup-id conky
+10
+for_window [class="Conky"] move container to workspace 10:<i><span foreground="#FF91F9">status</span></i>
+11
+# run compton for trasparency
+12
+exec --no-startup-id compton
+13
+# run mpd
+14
+exec --no-startup-id "mpd ~/.mpd/mpd.conf"
+15
+# run mpd
+16
+exec --no-startup-id lightscreen
+17
+​
+18
+# Font for window titles. Will also be used by the bar unless a different font
+19
+# is used in the bar {} block below.
+20
+font pango:mono 8
+21
+​
+22
+# hide borders on the edges of screen
+23
+hide_edge_borders both
+24
+​
+25
+# remove title bars
+26
+for_window [class="^.*"] border pixel 0
+27
+​
+28
+# color setup
+29
+#class         border  bg      text    indicator
+30
+client.focused #e8911f #e8911f #212121 #e8911f
+31
+​
+32
+# global gaps
+33
+gaps inner 5
+34
+gaps outer 2
+35
+​
+36
+# pressing mod+x (where x is the workspace num)
+37
+# will return to the previous workspace
+38
+workspace_auto_back_and_forth yes
+39
+​
+40
+# Use Mouse+$mod to drag floating windows to their wanted position
+41
+floating_modifier $mod
+42
+​
+43
+# start a terminal
+44
+bindsym $mod+Return exec i3-sensible-terminal
+45
+​
+46
+# change keyboard layout
+47
+mode "kbdLayoutChange" {
+48
+     bindsym b exec setxkbmap -layout br; mode "default"
+49
+     bindsym d exec setxkbmap -layout de; mode "default"
+50
+     bindsym e exec setxkbmap -layout us; mode "default"
+51
+​
+52
+     bindsym Escape mode "default"
+53
+}
+54
+​
+55
+bindsym $mod+Shift+b mode "kbdLayoutChange"
+56
+​
+57
+​
+58
+# kill focused window
+59
+bindsym $mod+Shift+q kill
+60
+​
+61
+# start rofi
 bindsym $mod+Up      exec amixer -q set Master 4%+ unmute
 bindsym $mod+Down    exec amixer -q set Master 4%- unmute
 bindsym $mod+Shift+m exec amixer -q -D pulse set Master toggle
