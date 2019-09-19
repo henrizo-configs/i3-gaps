@@ -200,7 +200,7 @@ mode "mouse" {
         bindsym Right exec xdotool mousemove_relative -- 15 0
         bindsym Left  exec xdotool mousemove_relative -- -15 0
         bindsym w     exec xdotool mousemove_relative -- 0 -15
-        bindsym x     exec xdotool mousemove_relative -- 0 15
+        bindsym s     exec xdotool mousemove_relative -- 0 15
         bindsym d     exec xdotool mousemove_relative -- 15 0
         bindsym a     exec xdotool mousemove_relative -- -15 0
         bindsym q     exec xdotool mousemove_relative -- -15 -15
@@ -213,7 +213,7 @@ mode "mouse" {
         bindsym $mod+Right exec xdotool mousemove_relative -- 30 0
         bindsym $mod+Left  exec xdotool mousemove_relative -- -30 0
         bindsym $mod+w     exec xdotool mousemove_relative -- 0 -30
-        bindsym $mod+x     exec xdotool mousemove_relative -- 0 30
+        bindsym $mod+s     exec xdotool mousemove_relative -- 0 30
         bindsym $mod+d     exec xdotool mousemove_relative -- 30 0
         bindsym $mod+a     exec xdotool mousemove_relative -- -30 0
         bindsym $mod+q     exec xdotool mousemove_relative -- -30 -30
@@ -226,7 +226,7 @@ mode "mouse" {
         bindsym Control+Right exec xdotool mousemove_relative -- 5 0
         bindsym Control+Left  exec xdotool mousemove_relative -- -5 0
         bindsym Control+w     exec xdotool mousemove_relative -- 0 -5
-        bindsym Control+x     exec xdotool mousemove_relative -- 0 5
+        bindsym Control+s     exec xdotool mousemove_relative -- 0 5
         bindsym Control+d     exec xdotool mousemove_relative -- 5 0
         bindsym Control+a     exec xdotool mousemove_relative -- -5 0
         bindsym Control+q     exec xdotool mousemove_relative -- -5 -5
