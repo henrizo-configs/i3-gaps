@@ -192,6 +192,7 @@ mode "resize" {
 		 bindsym Return mode "default"
 		 bindsym Escape mode "default"
 }
+bindsym $mod+r mode "resize"
 
 # mouse mode
 # requires xdotool
@@ -249,8 +250,6 @@ mode "mouse" {
         bindsym Escape mode "default"
 }
 bindsym $mod+g mode "mouse"
-
-bindsym $mod+r mode "resize"
 
 # i3 bar config
 bar {
