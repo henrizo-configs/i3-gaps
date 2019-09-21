@@ -197,7 +197,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# mouse mode
 # requires xdotool
 mode "mouse" {
         # normal
@@ -240,14 +239,14 @@ mode "mouse" {
         bindsym Control+c     exec xdotool mousemove_relative -- 5 5
         bindsym Control+z     exec xdotool mousemove_relative -- -5 5
         # click
-        bindsym s         exec xdotool click 2 # middle
-        bindsym k         exec xdotool click 3 # right
-        bindsym j         exec xdotool click 1 # left
-        bindsym h         exec xdotool click 4 # wheel up
-        bindsym l         exec xdotool click 5 # wheel down
-        bindsym Shift+j   exec xdotool click 1 # shift + left = mark
-        bindsym Control+h exec xdotool click 4 # control + wheel up = zoom
-        bindsym Control+l exec xdotool click 5 # control + wheel down = zoom
+        bindsym s         exec xdotool click 2     # middle
+        bindsym k         exec xdotool click 3     # right
+        bindsym j         exec xdotool click 1     # left
+        bindsym h         exec xdotool click 4     # wheel up
+        bindsym l         exec xdotool click 5     # wheel down
+        bindsym Shift+j   exec xdotool mousedown 1 # Left Click-and-drag
+        bindsym Control+h exec xdotool click 4     # control + wheel up = zoom
+        bindsym Control+l exec xdotool click 5     # control + wheel down = zoom
         # exit mode
         bindsym Return mode "default"
         bindsym Escape mode "default"
