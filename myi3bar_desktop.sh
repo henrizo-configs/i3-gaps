@@ -36,14 +36,14 @@ do
     fi
 
     # mpd info
+    nowPlaying=$(mpc current | sed -E "s/\/.*\///g")
+    
     mpdStatus=$(mpc status | grep -Eo "(playing|paused)")
     if [[ $mpdStatus == "playing" ]]
     then
-        nowPlaying=$(mpc current | sed -E "s/\/.*\///g")
         mpdIcon=""
     elif [[ $mpdStatus == "paused" ]]
     then
-        nowPlaying=""
         mpdIcon=""
     else
         mpdIcon=""
