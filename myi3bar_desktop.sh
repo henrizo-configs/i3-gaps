@@ -16,13 +16,13 @@ do
     # updating variables
     # keyboard info
     keyboardLayout=$(setxkbmap -query | grep layout | rev | cut -c 1,2 | rev)
-    
+
     # date info
     date=$(date "+%a, %d %b %Y")
 
     #time info
     time=$(date "+%T")
-    
+
     # audio info
     audioState=$(amixer get Master  | grep -Eo "\[(off|on)\]" | sed -n '1,1 p')
     masterLevel=$(amixer get Master | grep -Eo "[0-9]+%"      | sed -n '1,1 p')
@@ -36,19 +36,19 @@ do
     fi
 
     # mpd info
-    nowPlaying=$(mpc current)
-
     mpdStatus=$(mpc status | grep -Eo "(playing|paused)")
     if [[ $mpdStatus == "playing" ]]
     then
+        nowPlaying=$(mpc current | sed -E "s/\/.*\///g")
         mpdIcon=""
     elif [[ $mpdStatus == "paused" ]]
     then
+        nowPlaying=""
         mpdIcon=""
     else
         mpdIcon=""
-    fi                    
-    
+    fi
+
     # connection info
     ethStatus=$(ip link show | grep -Eo "state DOWN")
     if [[ $ethStatus != "state DOWN" ]]
@@ -60,29 +60,29 @@ do
         connectionIcon=""
         connectionColour=$bloodyRed
         connectionStatus="not connected"
-    fi                    
+    fi
 
     # output blocks
         echo ",[{\"name\"     :\"mpd\"
               ,  \"color\"    :\"$defaultColour\"
               ,  \"full_text\":\"$mpdIcon  $nowPlaying\"}
-                                        
+
               , {\"name\"     :\"masterLevel \"
               ,  \"color\"    :\"$audioColour\"
               ,  \"full_text\":\"$audioIcon $masterLevel\"}
-                
+
               , {\"name\"     :\"connectionInfo\"
               ,  \"color\"    :\"$connectionColour\"
               ,  \"full_text\":\"$connectionIcon  $connectionStatus\"}
-                
+
               , {\"name\"     :\"keyboardInfo \"
               ,  \"color\"    :\"$defaultColour\"
               ,  \"full_text\":\"  $keyboardLayout\"}
-                
+
               , {\"name\"     :\"date\"
               ,  \"color\"    :\"$defaultColour\"
               ,  \"full_text\":\"  $date\"}
-                
+
               , {\"name\"     :\"time\"
               ,  \"color\"    :\"$defaultColour\"
               ,  \"full_text\":\" $time\"}

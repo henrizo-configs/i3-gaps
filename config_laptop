@@ -8,7 +8,7 @@ set $mod Mod4
 # jack
 exec --no-startup-id "sleep 30s; qjackctl"
 # set wallpaper
-exec --no-startup-id feh --bg-fill "/mnt/myStuff/wallpapers/mountain_night_sky.jpg"
+exec --no-startup-id feh --bg-fill "/mnt/myStuff/wallpapers/wallpaper.jpg"
 # run compton for trasparency
 exec --no-startup-id compton
 # run mpd
