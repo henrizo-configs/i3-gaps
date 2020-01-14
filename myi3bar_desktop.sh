@@ -36,7 +36,7 @@ do
     fi
 
     # mpd info
-    nowPlaying=$(mpc current | sed -E "s/\/.*\///g")
+    nowPlaying=$(mpc current | sed -E "s/.*\///g")
     
     mpdStatus=$(mpc status | grep -Eo "(playing|paused)")
     if [[ $mpdStatus == "playing" ]]
