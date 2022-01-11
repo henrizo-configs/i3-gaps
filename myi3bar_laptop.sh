@@ -1,4 +1,4 @@
-#! bin/bash
+#! /bin/bash
 
 # DEPENDENCY: icons depends on font awesome and typicons
 echo '{ "version": 1 }'
@@ -7,7 +7,7 @@ echo '['
 echo '[]'
 
 # static auxiliary variables
-defaultColour="#b39478"
+defaultColour="#f9f8f8"
 bloodyRed="#db4b4b"
 
 # Output blocks loop
@@ -95,12 +95,12 @@ do
     fi
 
     # connection info
-    wifiStatus=$(iw dev wlp2s0b1 link)
+    wifiStatus=$(iw dev wlan0 link)
     if [[ $wifiStatus != "Not connected." ]]
     then
         wlanIcon=""
         wlanColor=$defaultColour
-        ssid=$(iw dev wlp2s0b1 link | grep -Eo "SSID: .+" | cut -c 7-)
+        ssid=$(iw dev wlan0 link | grep -Eo "SSID: .+" | cut -c 7-)
     else
         wlanIcon=""
         wlanColor=$bloodyRed
